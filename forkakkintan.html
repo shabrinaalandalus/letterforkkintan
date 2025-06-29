@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Surat Manis</title>
+  <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      background-image: url('https://i.imgur.com/DhyGrcK.jpeg');
+      background-repeat: repeat;
+      background-size: auto;
+      font-family: 'Comic Neue', cursive;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      margin: 0;
+      overflow-x: hidden;
+    }
+
+    h1 {
+      color: #d16ba5;
+      z-index: 2;
+      margin-top: 30px;
+    }
+
+    button {
+      background-color: #fcbad3;
+      color: white;
+      font-size: 18px;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      z-index: 2;
+    }
+
+    button:hover {
+      background-color: #f8a5c2;
+    }
+
+    .letter {
+      margin: 30px 20px;
+      padding: 20px;
+      background-color: rgba(255, 240, 245, 0.9);
+      border-radius: 15px;
+      width: 90%;
+      max-width: 500px;
+      text-align: center;
+      color: #4a4a4a;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+      z-index: 2;
+    }
+
+    .letter.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .flower {
+      position: fixed;
+      top: -50px;
+      font-size: 24px;
+      animation: fall linear forwards;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    @keyframes fall {
+      to {
+        transform: translateY(110vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🌸 Surat Manis 🌸</h1>
+  <button onclick="showLetter()">Klik untuk buka surat</button>
+
+  <div id="letter" class="letter">
+    <p>Hai Kak Qintan lope 💌</p>
+    <p>ya intinya semoga suka sama kadonya walaupun emang gak bermanfaat tapi setidaknya kalau lihat figure nya bisa inget ana lahhh hhoooo, semangat kuliahnya this is not the ending but the beginning! ¡Ánimo!, ¡seguro que puedes!</p>
+    <p>I hope to become someone who is useful to others, to continue attending Pilates classes, to be myself and do whatever I enjoy, and to become a famous writer. AZEEEEEEEEEK DUM TAK TAK DUM TAK TAK,</p>
+
+    <p>
+      Aunque el tiempo sea breve,<br>
+      guardaré tu risa en mi memoria,<br>
+      como una estrella que guía suave,<br>
+      como un capítulo en mi historia.<br><br>
+
+      Fuiste ejemplo en mi camino,<br>
+      con fuerza, calma y decisión.<br>
+      Aunque sigas tu destino,<br>
+      te llevo en el corazón.
+    </p>
+
+    <p>
+      📸 Instagram:
+      <a href="https://www.instagram.com/_andaluzblossom/" target="_blank" style="color: #d16ba5; text-decoration: none; font-weight: bold;">
+        @_andaluzblossom
+      </a>
+    </p>
+
+    <p><strong>💖 from La persona más adorable. Andalucía 💖</strong></p>
+
+    <!-- Gambar tambahan di bawah surat -->
+    <img src="https://i.imgur.com/KUkhCsy.jpeg" alt="Hiasan Cantik" style="max-width: 100%; border-radius: 12px; margin-top: 20px;">
+  </div>
+
+  <!-- Gambar tambahan di pojok kanan bawah -->
+  <img src="https://i.imgur.com/KUkhCsy.jpeg" alt="Dekorasi Sudut" style="position: fixed; bottom: 10px; right: 10px; width: 100px; opacity: 0.9; z-index: 1;">
+
+  <script>
+    function showLetter() {
+      document.getElementById('letter').classList.add('show');
+    }
+
+    function createFlower() {
+      const flower = document.createElement('div');
+      flower.classList.add('flower');
+      flower.innerText = '🌸';
+      flower.style.left = Math.random() * 100 + 'vw';
+      flower.style.animationDuration = (Math.random() * 3 + 3) + 's';
+      flower.style.opacity = Math.random();
+      flower.style.fontSize = (Math.random() * 10 + 20) + 'px';
+      document.body.appendChild(flower);
+
+      setTimeout(() => {
+        flower.remove();
+      }, 7000);
+    }
+
+    setInterval(createFlower, 300);
+  </script>
+
+</body>
+</html>
